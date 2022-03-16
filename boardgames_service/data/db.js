@@ -13,5 +13,9 @@ const pool = new Pool({
 
 module.exports = { 
   query: async (text, params) => await pool.query(text, params), 
-  GET_PRODUCTS : 'SELECT * FROM "boardgames"'
+  GET_BOARDGAMES : 'SELECT * FROM "boardgames"',
+  GET_BOARDGAME_BY_ID : 'SELECT * FROM "boardgames" WHERE id = $1',
+  POST_BOARDGAME : 'INSERT INTO "boardgames" ("title", "type", "players", "play_time", "language", "age", "purchase_date") VALUES ($1, $2, $3, $4, $5, $6, $7)',
+  UPDATE_BOARDGAME: 'UPDATE "boardgames" SET "title" = $1, "type" = $2, "players" = $3, "play_time" = $4, "language" = $5, "age" = $6, "purchase_date" = $7 WHERE id = $8',
+  DELETE_BOARDGAME: 'DELETE FROM  "boardgames" WHERE id = $1'
 };
