@@ -1,13 +1,38 @@
-body {
+html, body, div, span, object, h1, h2, 
+h3, h4, h5, h6, p, a, address, img, var, 
+center, ol, ul, li, fieldset, form, label, 
+legend, table, tbody, tfoot, thead, tr, th, 
+td, article, aside, details, figure, figcaption, 
+footer, header, hgroup, menu, nav, output, 
+section, summary {
+	border: 0;
+  font: inherit;
+	font-size: 100%;
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	padding: 0;
+}
+ol, ul {
+	list-style: none;
+}
+:root {
+  --backgroung--body-one: #F2F4F4 ;
+  --backgroung--body-two: #EAFAF1;
+  --background--button-delete: #941f1f;
+  --background--button-submit: #7b9971;
+  --background--form: #ffefb9;
+  --background--list-done: #dee7e7;
+  --backgroung--list-toDo: #95c68f;
+  --black: #000000;
+  --border--form-title: #ffcd57;
+  --gradient-one: #fb7968;
+  --gradient-two: #fafad4;
+  --gradient-three: #89b2a2;
+  --quicksand: 'Quicksand', sans-serif;
+  --span--text: #ca221f;
+  --white: #ffffff;
+}
+html {
+  box-sizing: border-box;
+  font-family: var(--quicksand);
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}

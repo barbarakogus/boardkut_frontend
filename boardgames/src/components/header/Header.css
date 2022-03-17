@@ -1,0 +1,29 @@
+.container__navbar {
+  align-items: baseline;
+  background-image: linear-gradient(to right, var(--gradient-one) , var(--gradient-two), var(--gradient-three));
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding: 1rem 2rem;
+}
+.navbar--rigth {
+  width: 50%;
+}
+.title__navbar {
+  background-color: var(--white);
+  border: none;
+  border-radius: 0.63rem;
+  color: var(--background--button-submit);
+  cursor: pointer;
+  font-size: 18px;
+  padding: 0.3rem;
+  width: 25%;
+}
+.navbar__ancor {
+  color: var(--black);
+  margin: 0rem 1rem;
+  text-decoration: none;
+}
+.input__seach::placeholder {
+  color: var(--white);
+}

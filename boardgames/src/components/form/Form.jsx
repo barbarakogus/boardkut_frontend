@@ -1,7 +1,7 @@
 import './Form.css';
 import { useState } from 'react';
 
-function Form({addBoardgame}) {
+function Form({ addBoardgame }) {
 
   const [bgTitle, setBgTitle] = useState("");
   const [bgType, setBgType] = useState("");
@@ -42,20 +42,29 @@ function Form({addBoardgame}) {
       age: bgAge,
       purchaseDate: bgPurchaseDate
     })
+    setBgTitle("");
+    setBgType("");
+    setBgPlayers("");
+    setBgPlayTime("");
+    setBgLanguage("");
+    setBgAge("");
+    setBgPurchaseDate("");
+
   }
 
   return (
-    <article className="form__container">
+    <article className="form__container cards">
+      <h2 className='form__title'>Register a new Boardgame</h2>
       <form className="container__form" onSubmit={(event) => createNewBoardgame(event)}>
         {hasError ? <span className="form__span">Title is required</span> : ""}
-        <input className="form__input" id='bgTitle' name="bgTitle" type="text" placeholder='Boardgame name' onChange={handleChange} />
-        <input className="form__input" id='bgType' name="bgType" type="text" placeholder='Boardgame type' onChange={handleChange} />
-        <input className="form__input" id='bgPlayers' name="bgPlayers" type="number" placeholder='Players' onChange={handleChange} />
-        <input className="form__input" id='bgPlayTime' name="bgPlayTime" type="number" placeholder='Playing time' onChange={handleChange} />
-        <input className="form__input" id='bgLanguage' name="bgLanguage" type="text" placeholder='Language' onChange={handleChange} />
-        <input className="form__input" id='bgAge' name="bgAge" type="number" placeholder='Age for this game' onChange={handleChange} />
-        <input className="form__input" id='bgPurchaseDate' name="bgPurchaseDate" type="number" placeholder='Purchase date' onChange={handleChange} />
-        <button type="submit" className="form__button--submit" id="btnAddTodo">Add new Game</button>
+        <input className="form__input" id='bgTitle' name="bgTitle" type="text" value={bgTitle} placeholder='Boardgame name' onChange={handleChange} />
+        <input className="form__input" id='bgType' name="bgType" type="text" value={bgType} placeholder='Boardgame type' onChange={handleChange} />
+        <input className="form__input" id='bgPlayers' name="bgPlayers" type="number" value={bgPlayers} placeholder='Players' onChange={handleChange} />
+        <input className="form__input" id='bgPlayTime' name="bgPlayTime" type="number" value={bgPlayTime} placeholder='Playing time' onChange={handleChange} />
+        <input className="form__input" id='bgLanguage' name="bgLanguage" type="text" value={bgLanguage} placeholder='Language' onChange={handleChange} />
+        <input className="form__input" id='bgAge' name="bgAge" type="number" value={bgAge} placeholder='Age for this game' onChange={handleChange} />
+        <input className="form__input" id='bgPurchaseDate' name="bgPurchaseDate" type="number" value={bgPurchaseDate} placeholder='Purchase date' onChange={handleChange} />
+        <input type="submit" className="form__button--submit" id="btnAddTodo" value="Submit" />
       </form>
     </article>
   );

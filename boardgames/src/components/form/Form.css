@@ -1,3 +1,36 @@
+.cards {
+  border-radius: 1.3rem;
+  margin: .5rem;
+  padding: 1rem;
+}
+.form__title {
+  margin: .5rem 0rem;
+}
 .form__container {
-  background-color: aquamarine;
+  background-color: var(--background--form);
+  height: 410px;
+}
+.container__form {
+  display: flex;
+  flex-direction: column;
+}
+.form__input {
+  border: none;
+  border-radius: 20px;
+  margin: .5rem 0rem;
+  padding: .5rem;
+}
+.form__input::placeholder {
+  color: var(--black);
+}
+.form__button--submit {
+  align-self: flex-end;
+  background-color: var(--background--button-submit);
+  border: none;
+  border-radius: 0.63rem;
+  color: var(--white);
+  cursor: pointer;
+  margin: .5rem 0rem;
+  padding: 0.4rem;
+  width: 40%;
 }

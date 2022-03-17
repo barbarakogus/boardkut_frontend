@@ -1,0 +1,7 @@
+.container__body {
+  background-image: linear-gradient(to bottom, var(--backgroung--body-one), var(--backgroung--body-two));
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  justify-content: center;
+}

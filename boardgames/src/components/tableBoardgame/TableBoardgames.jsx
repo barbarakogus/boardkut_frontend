@@ -1,9 +1,23 @@
+import { useEffect, useState } from 'react';
 import './TableBoardgames.css';
 
 function TableBoardgames({boardgames, deleteBoardgame}) {
 
+  const [filteredList, setFilteredList] = useState([...boardgames]);
+
+  useEffect(() => {
+    setFilteredList([...boardgames]);
+  }, [boardgames]);
+
+  const filterBoardgame = (event) => {
+    let exp = new RegExp(event.target.value, "i");
+    const filteredBoardgames = boardgames.filter(bg => exp.test(bg.title));
+    setFilteredList([...filteredBoardgames]);
+  }
+
   return (
     <div className="container__table">
+      <input className='input__seach' placeholder="Search" name="search" onInput={(event) => filterBoardgame(event)} />
       <table className='table__boardgame'>
         <thead>
           <tr>
@@ -17,7 +31,7 @@ function TableBoardgames({boardgames, deleteBoardgame}) {
           </tr>
         </thead>
         <tbody className="tabela__body">
-          {boardgames.map((game, key) =>
+          {filteredList.map((game, key) =>
             <tr key={key}>
               <td className='body__table'>{game.title}</td>
               <td className='body__table'>{game.type}</td>
