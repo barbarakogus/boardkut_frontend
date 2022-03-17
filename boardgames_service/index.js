@@ -1,9 +1,11 @@
 const express = require('express');
 const repository = require('./data/repository');
+var cors = require('cors')
 
 const app = express();
-const port = 3000;
+const port = 3001;
 app.use(express.json());
+app.use(cors());
 
 app.get('/api/boardgames', async (req, res) => {
   console.log('entrei no get all');
@@ -25,6 +27,7 @@ app.post('/api/boardgames', async (req, res) => {
   console.log('entrei no post');
   const newBoardgame = await repository.addBoardgame(req.body);
   res.set('Location', `/api/boardgames/${newBoardgame.id}`);
+  res.set('Access-Control-Expose-Headers', '*');
   res.status(201);
   res.json(newBoardgame);
 });

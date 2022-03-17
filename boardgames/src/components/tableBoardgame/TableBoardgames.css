@@ -1,0 +1,10 @@
+.table__boardgame {
+  background-color: bisque;
+  margin: 0rem auto;
+}
+.header__table {
+  padding: .8rem .8rem;
+}
+.body__table {
+  padding: .4rem .4rem;
+}

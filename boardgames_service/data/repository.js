@@ -10,13 +10,13 @@ module.exports = {
     return rows;
   },
   addBoardgame: async (data) => {
-    const { rows } = await db.query(db.POST_BOARDGAME, [data.title, data.type, data.players, data.play_time, data.language, data.age, data.purchase_date]);
-    return rows;
+    const { rows } = await db.query(db.POST_BOARDGAME, [data.title, data.type, data.players, data.playTime, data.language, data.age, data.purchaseDate]);
+    return rows[0];
   },
   updateBoardgame: async (data, id) => {
     console.log(data);
     console.log(id);
-    const { rows } = await db.query(db.UPDATE_BOARDGAME, [data.title, data.type, data.players, data.play_time, data.language, data.age, data.purchase_date, id]);
+    const { rows } = await db.query(db.UPDATE_BOARDGAME, [data.title, data.type, data.players, data.playime, data.language, data.age, data.purchaseDate, id]);
     return rows; 
   },
   deleteBoardgame:async (id) => {
