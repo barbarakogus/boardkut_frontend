@@ -8,9 +8,10 @@ const PresentationMenu = ({ boardgames }) => {
         <h1 className='title__content'>Welcome Bárbara...</h1>
         <ul className='container__ul'>
           {[
-            { name: 'Photos', slug: 'Photos', icon: 'camera' },
+            { name: 'Wish list', slug: 'wish list', icon: 'plus' },
             { name: 'Ratings', slug: 'ratings', icon: 'star' },
             { name: 'Messages', slug: 'mensagens', icon: 'email' },
+            { name: 'Book a game', slug: 'book a game', icon: 'book' },
           ].map(({ name, slug, icon }) => (
             <li className='list__icones' key={`orkut__icon_set__${slug}`}>
               <span className="icon__title">
