@@ -8,7 +8,7 @@ const MenuProfileSidebar = () => {
   const pessoasFavoritas = [
     'SumanaSattar',
     'ksarvanitakis',
-    'CreamBeam',
+    'thiagodsti',
     'FransJoakim',
     'FabrizioOnorio',
     'saltsthlm',
