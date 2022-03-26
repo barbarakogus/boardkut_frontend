@@ -8,12 +8,11 @@ const MenuProfileSidebar = () => {
   const pessoasFavoritas = [
     'SumanaSattar',
     'ksarvanitakis',
-    'thiagodsti',
-    'castrodrigo',
-    'matthaus',
+    'CreamBeam',
+    'FransJoakim',
+    'FabrizioOnorio',
     'saltsthlm',
   ]
-
 
   return (
     <>
@@ -43,6 +42,5 @@ const MenuProfileSidebar = () => {
     </>
   )
 }
-
 
 export default MenuProfileSidebar;
