@@ -8,15 +8,15 @@ import MenuProfileSidebar from '../menuProfileSidebar/MenuProfileSidebar';
 const BoardgameContainer = () => {
 
   const [boardgames, setBoardgames] = useState([]);
-
+  const baseUrl = process.env.BASE_URL || 'http://localhost:3001'
   useEffect(() => {
-    fetch('http://localhost:3001/api/boardgames')
+    fetch(`${baseUrl}/api/boardgames`)
       .then(res => res.json())
       .then(data => setBoardgames(data))
   }, []);
 
   const addBoardgame = async (boardgame) => {
-    const response = await fetch('http://localhost:3001/api/boardgames', {
+    const response = await fetch(`${baseUrl}/api/boardgames`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(boardgame)
@@ -28,7 +28,7 @@ const BoardgameContainer = () => {
   }
 
   const deleteBoardgame = async (id) => {
-    await fetch(`http://localhost:3001/api/boardgames/${id}`, { method: 'DELETE' });
+    await fetch(`${baseUrl}/api/boardgames/${id}`, { method: 'DELETE' });
     setBoardgames(boardgames.filter(bg => bg.id !== id));
   }
 
