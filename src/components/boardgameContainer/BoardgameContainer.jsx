@@ -8,7 +8,7 @@ import MenuProfileSidebar from '../menuProfileSidebar/MenuProfileSidebar';
 const BoardgameContainer = () => {
 
   const [boardgames, setBoardgames] = useState([]);
-  const baseUrl = process.env.BASE_URL || 'http://localhost:3001'
+  const baseUrl = process.env.REACT_APP_BASE_URL || 'http://localhost:3001'
   useEffect(() => {
     fetch(`${baseUrl}/api/boardgames`)
       .then(res => res.json())
