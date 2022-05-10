@@ -18,7 +18,7 @@ const PresentationMenu = ({ boardgames }) => {
                 {name}
               </span>
               <span className="icon__number">
-                <img key={`orkut__icon_set__${slug}_img`} className="icon" src={`https://alurakut.vercel.app/icons/${icon}.svg`} />
+                <img key={`orkut__icon_set__${slug}_img`} className="icon" src={`https://alurakut.vercel.app/icons/${icon}.svg`} alt={`${name}`}/>
               </span>
             </li>
           ))}
@@ -26,6 +26,6 @@ const PresentationMenu = ({ boardgames }) => {
       </div>
     </>
   )
-}
+};
 
 export default PresentationMenu;

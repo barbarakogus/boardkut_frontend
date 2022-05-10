@@ -41,7 +41,7 @@ function Form({ addBoardgame }) {
       language: bgLanguage,
       age: bgAge,
       purchaseDate: bgPurchaseDate
-    })
+    });
     setBgTitle("");
     setBgType("");
     setBgPlayers("");
@@ -64,7 +64,7 @@ function Form({ addBoardgame }) {
         <input className="form__input" id='bgLanguage' name="bgLanguage" type="text" value={bgLanguage} placeholder='Language' onChange={handleChange} />
         <input className="form__input" id='bgAge' name="bgAge" type="number" value={bgAge} placeholder='Age for this game' onChange={handleChange} />
         <input className="form__input" id='bgPurchaseDate' name="bgPurchaseDate" type="number" value={bgPurchaseDate} placeholder='Purchase date' onChange={handleChange} />
-        <input type="submit" className="form__button--submit" id="btnAddTodo" value="Submit" />
+        <input type="submit" className="form__button--submit" id="form__btn-addBg" value="Submit" />
       </form>
     </article>
   );

@@ -11,17 +11,19 @@ section, summary {
   margin: 0;
 	padding: 0;
 }
+
 ol, ul {
 	list-style: none;
 }
+
 :root {
   --backgroung--body-one: #F2F4F4 ;
   --backgroung--body-two: #EAFAF1;
   --background--button-delete: #941f1f;
   --background--button-submit: #7b9971;
   --background--form: #ffefb9;
-  --background--list-done: #dee7e7;
-  --backgroung--list-toDo: #95c68f;
+  --background--gray: #dee7e7;
+  --backgroung--green: #95c68f;
   --black: #000000;
   --border--form-title: #ffcd57;
   --gradient-one: #fb7968;
@@ -31,6 +33,7 @@ ol, ul {
   --span--text: #ca221f;
   --white: #ffffff;
 }
+
 html {
   box-sizing: border-box;
   font-family: var(--quicksand);

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './TableBoardgames.css';
 
-function TableBoardgames({boardgames, deleteBoardgame}) {
+function TableBoardgames({boardgames, updateBoardgame, deleteBoardgame}) {
 
   const [filteredList, setFilteredList] = useState([...boardgames]);
 
@@ -17,7 +17,7 @@ function TableBoardgames({boardgames, deleteBoardgame}) {
 
   return (
     <div className="container__table">
-      <input className='input__seach' placeholder="Search" name="search" onInput={(event) => filterBoardgame(event)} />
+      <input className='input__search' placeholder="Search" name="search" onInput={(event) => filterBoardgame(event)} />
       <table className='table__boardgame'>
         <thead>
           <tr>
@@ -40,6 +40,7 @@ function TableBoardgames({boardgames, deleteBoardgame}) {
               <td className='body__table'>{game.language}</td>
               <td className='body__table'>{game.age}</td>
               <td className='body__table'>{game.purchaseDate}</td>
+              <td><button className='table__button--update' onClick={() => updateBoardgame(game.id)}>Update</button></td>
               <td><button className='table__button--delete' onClick={() => deleteBoardgame(game.id)}>Delete</button></td>
             </tr>
           )}
@@ -47,6 +48,6 @@ function TableBoardgames({boardgames, deleteBoardgame}) {
       </table>
     </div>
   );
-}
+};
 
 export default TableBoardgames;

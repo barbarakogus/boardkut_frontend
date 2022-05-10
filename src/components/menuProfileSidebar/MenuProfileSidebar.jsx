@@ -5,6 +5,7 @@ const MenuProfileSidebar = () => {
   const gitHubUser = {
     name: 'barbarakogus'
   };
+
   const pessoasFavoritas = [
     'SumanaSattar',
     'ksarvanitakis',
@@ -12,7 +13,7 @@ const MenuProfileSidebar = () => {
     'FransJoakim',
     'FabrizioOnorio',
     'saltsthlm',
-  ]
+  ];
 
   return (
     <>
@@ -30,7 +31,7 @@ const MenuProfileSidebar = () => {
               return (
                 <li className='friends'>
                   <a className='ancor__friends' href={`/users/${itemAtual}`} key={itemAtual}>
-                    <img className='img__amigos' src={`https://github.com/${itemAtual}.png`}></img>
+                    <img className='img__amigos' src={`https://github.com/${itemAtual}.png`} alt="Profile friends"></img>
                     <span className='name__amigos'>{itemAtual}</span>
                   </a>
                 </li>
@@ -41,6 +42,6 @@ const MenuProfileSidebar = () => {
       </div>
     </>
   )
-}
+};
 
 export default MenuProfileSidebar;

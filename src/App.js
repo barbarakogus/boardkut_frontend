@@ -10,6 +10,6 @@ function App() {
       <BoardgameContainer />
     </div>
   );
-}
+};
 
 export default App;
