@@ -1,0 +1,13 @@
+.img__sidebar {
+    border-radius: 1.3rem;
+    width: 150px;
+    height: 150px;
+    margin: 0.5rem;
+}
+
+@media screen and (max-width:768px) {
+    .img__sidebar {
+        width: 120px;
+        height: 120px;
+    }
+}

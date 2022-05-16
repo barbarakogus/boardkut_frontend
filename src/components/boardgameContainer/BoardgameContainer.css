@@ -5,3 +5,14 @@
   height: 100vh;
   justify-content: center;
 }
+
+.container__sidebar {
+  background-image: linear-gradient(to bottom, var(--backgroung--body-one), var(--backgroung--body-two));
+  width: 240px;
+}
+
+@media screen and (max-width:768px) {
+  .container__body {
+    flex-direction: column;
+  }
+}

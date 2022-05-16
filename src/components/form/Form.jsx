@@ -1,15 +1,19 @@
 import './Form.css';
 import { useState } from 'react';
+import { addBoardgame } from '../../features/boardGameSlice';
+import { useDispatch } from 'react-redux';
 
-function Form({ addBoardgame }) {
+function Form() {
+
+  const dispath = useDispatch();
 
   const [bgTitle, setBgTitle] = useState("");
   const [bgType, setBgType] = useState("");
-  const [bgPlayers, setBgPlayers] = useState();
-  const [bgPlayTime, setBgPlayTime] = useState();
+  const [bgPlayers, setBgPlayers] = useState(1);
+  const [bgPlayTime, setBgPlayTime] = useState(15);
   const [bgLanguage, setBgLanguage] = useState("");
-  const [bgAge, setBgAge] = useState();
-  const [bgPurchaseDate, setBgPurchaseDate] = useState();
+  const [bgAge, setBgAge] = useState(6);
+  const [bgPurchaseDate, setBgPurchaseDate] = useState(new Date().getFullYear());
   const [hasError, setHasError] = useState(false);
 
   const handleChange = (event) => {
@@ -33,7 +37,7 @@ function Form({ addBoardgame }) {
   const createNewBoardgame = (event) => {
     event.preventDefault()
 
-    addBoardgame({
+    dispath(addBoardgame({
       title: bgTitle,
       type: bgType,
       players: bgPlayers,
@@ -41,7 +45,7 @@ function Form({ addBoardgame }) {
       language: bgLanguage,
       age: bgAge,
       purchaseDate: bgPurchaseDate
-    });
+    }));
     setBgTitle("");
     setBgType("");
     setBgPlayers("");

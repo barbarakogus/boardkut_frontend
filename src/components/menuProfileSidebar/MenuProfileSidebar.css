@@ -1,33 +1,31 @@
-.container__sidebar {
-  background-image: linear-gradient(to bottom, var(--backgroung--body-one), var(--backgroung--body-two));
-  width: 240px;
-}
-.img__sidebar {
-  border-radius: 1.3rem; 
-  width: 150px;
-  height: 150px;
-  margin: 0.5rem;
-}
 .smallTitle {
   margin: 0.5rem;
 }
 .list__img_friends {
   display: flex;
   flex-flow: row wrap;
+  justify-content: center;
 }
-.img__amigos {
+.ancor__friends {
+  position: relative;
+}
+.img__friends {
   border-radius: 1.3rem; 
   width: 100px;
   height: 100px;
   margin: 0.5rem;
 }
-.ancor__friends {
-  position: relative;
-}
-.name__amigos {
+.name__friends {
   font-size: 12px;
   position: absolute;
   bottom: 20px;
   left: 20px;
   color: var(--white);
+}
+
+@media screen and (max-width:768px) {
+  .img__sidebar {
+      width: 120px;
+      height: 120px;
+  }
 }

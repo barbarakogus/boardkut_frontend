@@ -1,7 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { deleteBoardgame } from '../../features/boardGameSlice';
 import './TableBoardgames.css';
 
-function TableBoardgames({boardgames, updateBoardgame, deleteBoardgame}) {
+function TableBoardgames({boardgames, updateBoardgame}) {
+
+  const dispath = useDispatch();
 
   const [filteredList, setFilteredList] = useState([...boardgames]);
 
@@ -41,7 +45,7 @@ function TableBoardgames({boardgames, updateBoardgame, deleteBoardgame}) {
               <td className='body__table'>{game.age}</td>
               <td className='body__table'>{game.purchaseDate}</td>
               <td><button className='table__button--update' onClick={() => updateBoardgame(game.id)}>Update</button></td>
-              <td><button className='table__button--delete' onClick={() => deleteBoardgame(game.id)}>Delete</button></td>
+              <td><button className='table__button--delete' onClick={() => dispath(deleteBoardgame(game.id))}>Delete</button></td>
             </tr>
           )}
         </tbody>

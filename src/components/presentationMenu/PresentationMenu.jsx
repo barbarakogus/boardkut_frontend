@@ -1,6 +1,6 @@
 import './PresentationMenu.css';
 
-const PresentationMenu = ({ boardgames }) => {
+const PresentationMenu = () => {
 
   return (
     <>

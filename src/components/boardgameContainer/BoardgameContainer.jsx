@@ -1,50 +1,35 @@
 import './BoardgameContainer.css';
-import { useState, useEffect } from 'react';
+import { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import Form from '../form/Form';
 import TableBoardgames from '../tableBoardgame/TableBoardgames';
 import PresentationMenu from '../presentationMenu/PresentationMenu';
 import MenuProfileSidebar from '../menuProfileSidebar/MenuProfileSidebar';
+import ProfileImage from '../profileImage/ProfileImage';
+import { fetchBoardgames } from '../../features/boardGameSlice';
 
 const BoardgameContainer = () => {
 
-  const [boardgames, setBoardgames] = useState([]);
-  const baseUrl = process.env.REACT_APP_BASE_URL || 'http://localhost:3002';
-  
+  const boardgames = useSelector(state => state.boardgames);
+  const dispath = useDispatch();
+
   useEffect(() => {
-    fetch(`${baseUrl}/api/boardgames`)
-      .then(res => res.json())
-      .then(data => setBoardgames(data))
+    dispath(fetchBoardgames());
   }, []);
-
-  const addBoardgame = async (boardgame) => {
-    const response = await fetch(`${baseUrl}/api/boardgames`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(boardgame)
-    });
-    const location = response.headers.get('Location');
-    const id = location.substring(location.lastIndexOf('/') + 1);
-    const newBgs = [...boardgames, { ...boardgame, id }];
-    setBoardgames(newBgs);
-  };
-
-  const deleteBoardgame = async (id) => {
-    await fetch(`${baseUrl}/api/boardgames/${id}`, { method: 'DELETE' });
-    setBoardgames(boardgames.filter(bg => bg.id !== id));
-  }
-
-  const updateBoardgame = async (id) => {
-    alert('hello')
-  };
 
   return (
     <div className='container__body'>
-      <MenuProfileSidebar />
-      <div className='container'>
-        <PresentationMenu  boardgames={boardgames} />
-        <TableBoardgames boardgames={boardgames} updateBoardgame={updateBoardgame} deleteBoardgame={deleteBoardgame} />
+      <div className="container__sidebar">
+        <ProfileImage />
+        <MenuProfileSidebar />
       </div>
-      <Form addBoardgame={addBoardgame} />
+      <div className='container'>
+        <PresentationMenu />
+        {boardgames.loading && <div>Loading</div>}
+        {!boardgames.loading && !boardgames.error ? <TableBoardgames boardgames={boardgames.data} /*updateBoardgame={updateBoardgame}*/ /> : null}
+        {!boardgames.loading && boardgames.error ? <div>Error: {boardgames.error}</div> : null}
+      </div>
+      <Form />
     </div>
   )
 };
