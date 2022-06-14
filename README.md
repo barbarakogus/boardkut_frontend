@@ -7,3 +7,5 @@ So, since I have a quite of games, why not create an app to manipulate this data
 The layout of this project was inspired by Orkut social media.
 
 To build this app I am using react, redux, and Postgres to store the data.
+
+To access the backend repository of this project: <a href="https://github.com/barbarakogus/boardkut_backend">https://github.com/barbarakogus/boardkut_backend</a>
