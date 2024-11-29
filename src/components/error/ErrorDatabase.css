@@ -1,0 +1,16 @@
+.error__container {
+    background-color: white;
+    border-radius: 1.3rem;
+    box-shadow: 0 0 1.06333rem var(--gradient-one);
+    margin: .5rem;
+    padding: 1rem;
+
+}
+
+.error__container--message {
+    padding-bottom: .5rem;
+}
+
+.error__container--link {
+    text-decoration: none;
+}

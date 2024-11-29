@@ -1,0 +1,19 @@
+.container__burguerMenu {
+    align-items: baseline;
+    background-image: linear-gradient(to right, var(--gradient-one), var(--gradient-two), var(--gradient-three));
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 1rem 1rem;
+}
+
+.title__burguerMenu {
+    background-color: var(--white);
+    border: none;
+    border-radius: 0.63rem;
+    color: var(--background--button-submit);
+    cursor: pointer;
+    font-size: 18px;
+    padding: 0.3rem;
+    width: 30%;
+}

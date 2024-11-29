@@ -1,7 +1,7 @@
 import './App.css';
 import { useState, useEffect } from 'react';
 import Header from './components/header/Header';
-import BurguerMenu from './components/burguerMenu/BurguerMenu';
+import MobileHeader from './components/MobileHeader/MobileHeader';
 import BoardgameContainer from './components/boardgameContainer/BoardgameContainer';
 import BoardgameContainerMobile from './components/boardgameContainerMobile/BoardgameContainerMobile';
 
@@ -28,7 +28,7 @@ function App() {
 
   return (
     <div className="App">
-      {screenSize.dynamicWidth < 768 ? <BurguerMenu /> : <Header />}
+      {screenSize.dynamicWidth < 768 ? <MobileHeader /> : <Header />}
       {screenSize.dynamicWidth < 768 ? <BoardgameContainerMobile /> : <BoardgameContainer />}
     </div>
   );

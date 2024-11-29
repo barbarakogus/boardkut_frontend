@@ -1,21 +1,19 @@
-import './ProfileImage.css';
+import "./ProfileImage.css";
 
 const ProfileImage = () => {
+  const gitHubUser = {
+    name: "barbarakogus",
+  };
 
-    const gitHubUser = {
-        name: 'barbarakogus'
-    };
-
-    return (
-        <>
-            <div className='block__img'>
-                <img className='img__sidebar' src={`https://github.com/${gitHubUser.name}.png`} alt="Profile" />
-                <p>
-                    <a className="boxLink" href={`/user/${gitHubUser.name}`}></a>
-                </p>
-            </div>
-        </>
-    )
-}
+  return (
+    <div className="image__container">
+      <img
+        className="img__sidebar"
+        src={`https://github.com/${gitHubUser.name}.png`}
+        alt="Profile"
+      />
+    </div>
+  );
+};
 
 export default ProfileImage;

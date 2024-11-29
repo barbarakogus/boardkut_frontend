@@ -2,12 +2,12 @@
     background-image: linear-gradient(to bottom, var(--backgroung--body-one), var(--backgroung--body-two));
     display: flex;
     flex-direction: column;
-    height: 100vh;
+    min-height: 100vh;
     justify-content: center;
 }
 
 .container__presentation {
     display: flex;
-    margin-top: 16rem;
-    flex-direction: row;
+    flex-direction: column;
+    margin-top: .5rem;
 }

@@ -7,6 +7,7 @@ import PresentationMenu from '../presentationMenu/PresentationMenu';
 import MenuProfileSidebar from '../menuProfileSidebar/MenuProfileSidebar';
 import { fetchBoardgames } from '../../features/boardGameSlice';
 import ProfileImage from '../profileImage/ProfileImage';
+import ErrorDatabase from "../error/ErrorDatabase"
 
 const BoardgameContainer = () => {
 
@@ -27,7 +28,7 @@ const BoardgameContainer = () => {
             <div className='container'>
                 {boardgames.loading && <div>Loading</div>}
                 {!boardgames.loading && !boardgames.error ? <TableBoardgames boardgames={boardgames.data} /*updateBoardgame={updateBoardgame}*/ /> : null}
-                {!boardgames.loading && boardgames.error ? <div>Error: {boardgames.error}</div> : null}
+                {!boardgames.loading && boardgames.error ? <ErrorDatabase /> : null}
             </div>
             <Form />
         </div>

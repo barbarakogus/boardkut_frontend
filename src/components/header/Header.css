@@ -1,14 +1,19 @@
+.container__header {
+  background-image: linear-gradient(to right, var(--gradient-one) , var(--gradient-two), var(--gradient-three));
+}
+
 .container__navbar {
   align-items: baseline;
-  background-image: linear-gradient(to right, var(--gradient-one) , var(--gradient-two), var(--gradient-three));
   display: flex;
   flex-direction: row;
-  justify-content: space-around;
+  justify-content: space-between;
   padding: 1rem 2rem;
 }
+
 .navbar--rigth {
   width: 50%;
 }
+
 .title__navbar {
   background-color: var(--white);
   border: none;
@@ -19,11 +24,13 @@
   padding: 0.3rem;
   width: 25%;
 }
-.navbar__ancor {
+
+.navbar__anchor {
   color: var(--black);
-  margin: 0rem 1rem;
+  margin-left: 1.5rem;
   text-decoration: none;
 }
+
 .input__seach::placeholder {
   color: var(--white);
 }
