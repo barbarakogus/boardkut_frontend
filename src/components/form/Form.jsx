@@ -1,77 +1,135 @@
-import './Form.css';
-import { useState } from 'react';
-import { addBoardgame } from '../../features/boardGameSlice';
-import { useDispatch } from 'react-redux';
+import "./Form.css";
+import { useState } from "react";
+import { addBoardgame } from "../../features/boardGameSlice";
+import { useDispatch } from "react-redux";
+import InputField from "../inputField/InputField";
+
+const formatDate = (input) => {
+  const date = new Date(input);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, "0");
+  const day = String(date.getDate()).padStart(2, "0");
+  return `${year}-${month}-${day}`;
+};
 
 function Form() {
-
   const dispath = useDispatch();
 
   const [bgTitle, setBgTitle] = useState("");
   const [bgType, setBgType] = useState("");
-  const [bgPlayers, setBgPlayers] = useState(1);
-  const [bgPlayTime, setBgPlayTime] = useState(15);
+  const [bgPlayers, setBgPlayers] = useState("");
+  const [bgPlayTime, setBgPlayTime] = useState("");
+  const [bgPlaytimeUnit, setBgPlayTimeUnit] = useState("");
   const [bgLanguage, setBgLanguage] = useState("");
-  const [bgAge, setBgAge] = useState(6);
-  const [bgPurchaseDate, setBgPurchaseDate] = useState(new Date().getFullYear());
-  const [hasError, setHasError] = useState(false);
+  const [bgPurchaseDate, setBgPurchaseDate] = useState(formatDate(new Date()));
 
-  const handleChange = (event) => {
-    if (event.target.name === "bgTitle") {
-      setBgTitle(event.target.value);
-    } else if (event.target.name === "bgType") {
-      setBgType(event.target.value);
-    } else if (event.target.name === "bgPlayers") {
-      setBgPlayers(event.target.value);
-    } else if (event.target.name === "bgPlayTime") {
-      setBgPlayTime(event.target.value);
-    } else if (event.target.name === "bgLanguage") {
-      setBgLanguage(event.target.value);
-    } else if (event.target.name === "bgAge") {
-      setBgAge(event.target.value);
-    } else if (event.target.name === "bgPurchaseDate") {
-      setBgPurchaseDate(event.target.value);
-    }
-  };
+  console.log(
+    bgTitle,
+    bgType,
+    bgPlayers,
+    bgPlayTime,
+    bgPlaytimeUnit,
+    bgLanguage,
+    bgPurchaseDate
+  );
 
   const createNewBoardgame = (event) => {
-    event.preventDefault()
-
-    dispath(addBoardgame({
-      title: bgTitle,
-      type: bgType,
-      players: bgPlayers,
-      playTime: bgPlayTime,
-      language: bgLanguage,
-      age: bgAge,
-      purchaseDate: bgPurchaseDate
-    }));
+    event.preventDefault();
+    dispath(
+      addBoardgame({
+        title: bgTitle,
+        type: bgType,
+        players: bgPlayers,
+        playTime: bgPlayTime,
+        playTimeUnit: bgPlaytimeUnit,
+        language: bgLanguage,
+        purchaseDate: bgPurchaseDate,
+      })
+    );
     setBgTitle("");
     setBgType("");
     setBgPlayers("");
     setBgPlayTime("");
+    setBgPlayTimeUnit("");
     setBgLanguage("");
-    setBgAge("");
     setBgPurchaseDate("");
-
-  }
+  };
 
   return (
-    <article className="form__container cards">
-      <h2 className='form__title'>Register a new Boardgame</h2>
-      <form className="container__form" onSubmit={(event) => createNewBoardgame(event)}>
-        {hasError ? <span className="form__span">Title is required</span> : ""}
-        <input className="form__input" id='bgTitle' name="bgTitle" type="text" value={bgTitle} placeholder='Boardgame name' onChange={handleChange} />
-        <input className="form__input" id='bgType' name="bgType" type="text" value={bgType} placeholder='Boardgame type' onChange={handleChange} />
-        <input className="form__input" id='bgPlayers' name="bgPlayers" type="number" value={bgPlayers} placeholder='Players' onChange={handleChange} />
-        <input className="form__input" id='bgPlayTime' name="bgPlayTime" type="number" value={bgPlayTime} placeholder='Playing time' onChange={handleChange} />
-        <input className="form__input" id='bgLanguage' name="bgLanguage" type="text" value={bgLanguage} placeholder='Language' onChange={handleChange} />
-        <input className="form__input" id='bgAge' name="bgAge" type="number" value={bgAge} placeholder='Age for this game' onChange={handleChange} />
-        <input className="form__input" id='bgPurchaseDate' name="bgPurchaseDate" type="number" value={bgPurchaseDate} placeholder='Purchase date' onChange={handleChange} />
-        <input type="submit" className="form__button--submit" id="form__btn-addBg" value="Submit" />
+    <article className="form__container">
+      <h2 className="form__title">Add a new boardgame</h2>
+      <form className="form" onSubmit={(event) => createNewBoardgame(event)}>
+        <InputField
+          name="bgTitle"
+          type="text"
+          value={bgTitle}
+          placeholder="Boardgame name"
+          onChange={setBgTitle}
+        />
+        <InputField
+          name="bgType"
+          type="text"
+          value={bgType}
+          placeholder="Boardgame type"
+          onChange={setBgType}
+        />
+        <InputField
+          name="bgPlayers"
+          type="number"
+          value={bgPlayers}
+          placeholder="Players"
+          onChange={setBgPlayers}
+        />
+
+        <div className="form__container__inputSelect">
+          <InputField
+            name="bgPlayTime"
+            type="number"
+            value={bgPlayTime}
+            placeholder="Playing time"
+            onChange={setBgPlayTime}
+          />
+          <select
+            name="bgPlaytimeUnit"
+            value={bgPlaytimeUnit}
+            className="form__select"
+            placeholder="Select..."
+            onChange={(e) => setBgPlayTimeUnit(e.target.value)}
+          >
+            <option value={""}></option>
+            <option value={"hour"}>hour</option>
+            <option value={"minutes"}>minutes</option>
+          </select>
+        </div>
+        <InputField
+          name="bgLanguage"
+          type="text"
+          value={bgLanguage}
+          placeholder="Language"
+          onChange={setBgLanguage}
+        />
+        <input
+          className="form__input"
+          id="bgPurchaseDate"
+          name="bgPurchaseDate"
+          type="date"
+          value={bgPurchaseDate}
+          placeholder="Purchase date"
+          onChange={(e) => {
+            const date = formatDate(e.target.value);
+            setBgPurchaseDate(date);
+          }}
+        />
+        <button
+          type="submit"
+          className="form__button--submit"
+          id="form__btn-addBg"
+        >
+          Submit
+        </button>
       </form>
     </article>
   );
-};
+}
 
 export default Form;

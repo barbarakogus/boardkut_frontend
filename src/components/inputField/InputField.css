@@ -1,0 +1,31 @@
+.input__container {
+    margin: .5rem 0rem;
+}
+
+.input {
+    border: 1px solid transparent;
+    border-radius: 1.3rem;
+    padding: .5rem;
+    width: -webkit-fill-available;
+
+}
+
+.input:focus {
+    border: 1px solid var(--background--button-submit);
+    outline: none;
+}
+
+.input:hover {
+    border: 1px solid var(--background--button-submit);
+    outline: none;
+}
+
+/* .input::placeholder {
+  color: var(--background--gray);
+} */
+
+.error--message {
+    color: var(--span--text);
+    font-size: x-small;
+    padding: .1rem .5rem;
+}

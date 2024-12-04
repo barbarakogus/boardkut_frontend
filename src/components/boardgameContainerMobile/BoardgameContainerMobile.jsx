@@ -2,7 +2,7 @@ import './BoardgameContainerModile.css';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import Form from '../form/Form';
-import TableBoardgames from '../tableBoardgame/TableBoardgames';
+import TableBoardgames from '../boardgameCards/BoardgameCards';
 import PresentationMenu from '../presentationMenu/PresentationMenu';
 import MenuProfileSidebar from '../menuProfileSidebar/MenuProfileSidebar';
 import { fetchBoardgames } from '../../features/boardGameSlice';

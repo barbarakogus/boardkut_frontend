@@ -1,20 +1,24 @@
 .smallTitle {
   margin: 0.5rem;
 }
+
 .list__img_friends {
   display: flex;
   flex-flow: row wrap;
   justify-content: flex-start;
 }
+
 .ancor__friends {
   position: relative;
 }
+
 .img__friends {
   border-radius: 1.3rem; 
   width: 100px;
   height: 100px;
   margin: 0.5rem;
 }
+
 .name__friends {
   font-size: 12px;
   position: absolute;

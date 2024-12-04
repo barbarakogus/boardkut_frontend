@@ -10,27 +10,25 @@ const initialState = {
 
 const baseUrl = process.env.REACT_APP_BASE_URL || 'http://localhost:3001';
 
-export const fetchBoardgames = createAsyncThunk('boardgames/fetchBoardgames', () => {
-    return fetch(`${baseUrl}/api/boardgames`)
-        .then(res => res.json())
+export const fetchBoardgames = createAsyncThunk('boardgames/fetchBoardgames', async () => {
+    const res = await fetch(`${baseUrl}/api/boardgames`);
+    return await res.json();
 });
 
-export const addBoardgame = createAsyncThunk('boardgames/addBoardgame', (boardgame) => {
-    return fetch(`${baseUrl}/api/boardgames`, {
+export const addBoardgame = createAsyncThunk('boardgames/addBoardgame', async (boardgame) => {
+    const res = await fetch(`${baseUrl}/api/boardgames`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(boardgame)
-    })
-        .then(res => {
-            const location = res.headers.get('Location');
-            const id = location.substring(location.lastIndexOf('/') + 1);
-            return { ...boardgame, id };
-        })
+    });
+    const location = res.headers.get('Location');
+    const id = location.substring(location.lastIndexOf('/') + 1);
+    return { ...boardgame, id };
 })
 
-export const deleteBoardgame = createAsyncThunk('boardgames/deleteBoardgame', (id) => {
-    return fetch(`${baseUrl}/api/boardgames/${id}`, { method: 'DELETE' })
-        .then(() => id)
+export const deleteBoardgame = createAsyncThunk('boardgames/deleteBoardgame', async (id) => {
+    await fetch(`${baseUrl}/api/boardgames/${id}`, { method: 'DELETE' });
+    return id;
 });
 
 const boardGameSlice = createSlice({
