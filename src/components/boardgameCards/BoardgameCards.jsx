@@ -8,8 +8,6 @@ function BoardgameCards({ boardgames, updateBoardgame }) {
 
   const [filteredList, setFilteredList] = useState([...boardgames]);
 
-  console.log(boardgames);
-
   useEffect(() => {
     setFilteredList([...boardgames]);
   }, [boardgames]);

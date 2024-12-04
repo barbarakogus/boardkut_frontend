@@ -23,16 +23,6 @@ function Form() {
   const [bgLanguage, setBgLanguage] = useState("");
   const [bgPurchaseDate, setBgPurchaseDate] = useState(formatDate(new Date()));
 
-  console.log(
-    bgTitle,
-    bgType,
-    bgPlayers,
-    bgPlayTime,
-    bgPlaytimeUnit,
-    bgLanguage,
-    bgPurchaseDate
-  );
-
   const createNewBoardgame = (event) => {
     event.preventDefault();
     dispath(
